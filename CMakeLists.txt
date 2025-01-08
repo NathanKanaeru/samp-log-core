@@ -16,6 +16,7 @@ elseif(UNIX)
 	# hide non-exported symbols
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=hidden")
+        set(TARGET_BUILD_ARCH armv8)
 	set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS OFF)
 
 	# link runtime statically
@@ -35,7 +36,7 @@ function(add_conan_lib pkg_name conan_pkg)
 
 	conan_cmake_run(
 		REQUIRES ${conan_pkg}
-		ARCH x86
+		ARCH armv8
 		BASIC_SETUP CMAKE_TARGETS
 		BUILD missing
 	)
