@@ -14,8 +14,8 @@ if (MSVC)
 	set(CMAKE_BUILD_TYPE "" CACHE STRING "" FORCE)
 elseif(UNIX)
 	# hide non-exported symbols
-	set(CMAKE_CXX_FLAGS "-fvisibility=hidden")
-	set(CMAKE_C_FLAGS "-fvisibility=hidden")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=hidden")
         set(TARGET_BUILD_ARCH armv8)
 	set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS OFF)
 
